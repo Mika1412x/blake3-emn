@@ -1,0 +1,8 @@
+{
+  "name": "blake3-emn",
+  "version": "1.0.0",
+  "description": "blake3 hash function",
+  "main": "blake3.js",
+  "author": "emn178",
+  "license": "MIT"
+}
