@@ -21,9 +21,10 @@ exports.init = function () {
   function e(e) {
     return "string" == typeof e ? utf8ToBytes(e) : e;
   }
-  function t(t) {
-    if ("hash" === u) return blake3Js.newRegular();
-    if ("keyed_hash" === u) {
+  function t(t, n) {
+    var r = n;
+    if ("hash" === r) return blake3Js.newRegular();
+    if ("keyed_hash" === r) {
       if (32 !== (t = utf8ToBytes(t)).length)
         throw new Error("key must be 32 bytes.");
       return blake3Js.newKeyed(t);
@@ -42,12 +43,11 @@ exports.init = function () {
     };
     return u;
   }
-  function r(e, r, u) {
-    return n(t(u), e, r);
+  function r(e, r, u, i) {
+    return n(t(u, i), e, r);
   }
-  var u = "hash",
-    i = function (e, t, n) {
-      return r(e, t, n).hex();
-    };
-  return (i.update = r), i;
+  var u = function (e, t, n, u) {
+    return r(e, t, n, u).hex();
+  };
+  return (u.update = r), u;
 };
