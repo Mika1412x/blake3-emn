@@ -25,7 +25,7 @@ exports.init = function () {
     var r = n;
     if ("hash" === r) return blake3Js.newRegular();
     if ("keyed_hash" === r) {
-      if (32 !== (t = utf8ToBytes(t)).length)
+      if (32 !== t.length)
         throw new Error("key must be 32 bytes.");
       return blake3Js.newKeyed(t);
     }
